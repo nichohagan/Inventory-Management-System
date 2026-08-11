@@ -1,51 +1,92 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flinventraq</title>
-        <meta charset="YTF-8">
+        <title>Resale Tracker</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Flinventraq: Inventory Management System for Resellers">
+        <meta name="description" content="Resale Tracker: Inventory Management System for Resellers">
     </head>
     <body>
         <!-- Some Semantic elements -->
-         <header>
-            <img src="letter-F.png" alt="Oop! logo not found..." width="50" height="50">
-            <h1>Flinventraq</h1>
-            <p>NH</p>
-         </header>
-         <hr>
-         <nav> <!-- Main App Navigation -->
-            <ul>
-                <li>Home</li>
-                    <ul>
-                        <li>All Inventory</li>
-                        <li>Bundles</li>
-                        <li>Add Inventory</li>
-                    </ul>
-                <li>Inventory</li>
-                <li>Sales</li>
-                <li>Ledger</li>
-                <li>Insight</li>
-                    <ul>
-                        <li>Cashfow Statement</li>
-                        <li>Income Statement</li>
-                        <li>Tax Report</li>
-                    </ul>
-                <li>Tools</li>
-                    <ul>
-                        <li>Sourcing Calculator</li>
-                        <li>Pricing Calculator</li>
-                    </ul>
-                <li>Manage</li>
-            </ul>
-         </nav> 
-         <hr>
-         <main>
-            <!-- Inventory main content -->
-             <nav>Home > Inventory</nav> <!-- Page Navigation (Breadcrumps) -->
-             <hr>
-         </main>
-         <hr>
-         <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
+            <header>
+               <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
+               <h1>Resale Tracker</h1>
+               <p>NH</p>
+            </header>
+            <hr>
+            <nav> <!-- Main App Navigation -->
+               <ul>
+                   <li>Home</li>
+                       <ul>
+                           <li>All Inventory</li>
+                           <li>Bundles</li>
+                           <li>Add Inventory</li>
+                       </ul>
+                   <li>Inventory</li>
+                   <li>Sales</li>
+                   <li>Ledger</li>
+                   <li>Insight</li>
+                       <ul>
+                           <li>Cashfow Statement</li>
+                           <li>Income Statement</li>
+                           <li>Tax Report</li>
+                       </ul>
+                   <li>Tools</li>
+                       <ul>
+                           <li>Sourcing Calculator</li>
+                           <li>Pricing Calculator</li>
+                       </ul>
+                   <li>Manage</li>
+               </ul>
+            </nav> 
+            <hr>
+            <main>
+               <!-- Inventory main content -->
+                    <nav>Home > Inventory</nav> <!-- Page Navigation (Breadcrumps) -->
+                    <hr>
+                    <Form action="filters" method="get"> <!-- FILTERS & Search  -->
+                        <fieldset>
+                            <input type="radio" id="inventory-All" name="inventory-Filter" checked>
+                            <label for="inventory-All">All</label> 
+
+                            <input type="radio" id="inventory-Listed" name="inventory-Filter">
+                            <label for="inventory-Listed">Listed</label> 
+
+                            <input type="radio" id="inventory-Unlisted" name="inventory-Filter">
+                            <label for="inventory-Unlisted">Unlisted</label> 
+
+                            <input type="radio" id="inventory-Donated" name="inventory-Filter">
+                            <label for="inventory-Donated">Donated</label> 
+
+                            <input type="radio" id="inventory-Discarded" name="inventory-Filter">
+                            <label for="inventory-Discarded">Discarded</label> 
+                            
+                            <input type="radio" id="inventory-Bundled" name="inventory-Filter">
+                            <label for="inventory-Bundled">Bundled</label>  
+                            
+                            <input type="radio" id="inventory-Missing" name="inventory-Filter">
+                            <label for="inventory-Missing">Missing Data</label>    
+                            
+                            <!-- Search box and Submit button -->
+                            <input type="text" name="inv-search-box" placeholder="Search by SKU or Description">
+                            <button type="search-btn">Search</button>
+
+                            <!-- AGING INVENTORY DROPDOWN -->
+                            <label for="aging-inventory">Aging Inventory</label>
+                            <select>
+                                <option value="0-30d">0 - 30 days</option>
+                                <option value="31-60d">31 - 60 days</option>
+                                <option value="61-90d">61 - 90 days</option>
+                                <option value="90+d">90+ days</option>
+                            </select>
+
+                            <!-- FILTER & EXPORT buttons -->
+                            <button type="filter-btn">Filter</button>
+                            <button type="export-btn">Export</button>
+                        </fieldset>
+                   </Form>
+            </main>
+            <hr>
+            <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
     </body>
 </html>

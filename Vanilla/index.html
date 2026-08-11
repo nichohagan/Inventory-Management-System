@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flinventraq</title>
-        <meta charset="YTF-8">
+        <title>Resale Tracker</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Flinventraq: Inventory Management System for Resellers">
+        <meta name="description" content="Resale Tracker: Inventory Management System for Resellers">
     </head>
     <body>
         <!-- Some Semantic elements -->
          <header>
-            <img src="letter-F.png" alt="Oop! logo not found..." width="50" height="50">
-            <h1>Flinventraq</h1>
+            <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
+            <h1>Resale Tracker</h1>
             <p>NH</p>
          </header>
          <hr>
@@ -44,40 +44,51 @@
             <!-- Home page main content -->
             <nav>Home</nav> <!-- Page Navigation (Breadcrumps) -->
             <hr>
-            <span> <!-- Using Span because we want the ff to be on the same line -->
-                <p>Welcome back, Nick!</p>
-                <p>Dropdown dates (coming soon...)</p>
-            </span> 
+            <p>Welcome back, Nick!</p>
+            <p>Dropdown dates (coming soon...)</p>
             <hr> 
             <!-- Business Score Card Section --> 
             <section>
-                <span>
-                    <p>COST OF UNSOLD GOODS</p>
+                <h2>Business Score Cards</h2>
+                <form action="home-filter" method="get">
+                    <select id="home-filter">
+                        <option value="last-7days">Last 7 days</option>
+                        <option value="this-week">This Week</option>
+                        <option value="last-week">Last Week</option>
+                        <option value="this-month">This Month</option>
+                        <option value="last-month">Last Month</option>
+                        <option value="last-quarter">Last Quarter</option>
+                        <option value="this-quarter">This Quarter</option>
+                        <option value="year-to-date">Year To Date</option>                                                
+                    </select>
+                </form>
+                <article>
+                    <p>UNSOLD GOODS</p>
                     <P>$8,439</P>
-                </span>
-                <span>
-                    <p>TOTAL SALES</p>
+                </article>
+                <article>
+                    <p>QTY SOLD</p>
                     <P>673</P>
-                </span>
-                <span>
+                </article>
+                <article>
                     <p>GROSS SALES</p>
                     <P>$11,984</P>
-                </span>
-                <span>
+                </article>
+                <article>
                     <p>NET PROFIT</p>
                     <P>$1,439</P>
-                </span>
+                </article>
             </section>
             <hr>
             <!-- Quick Actions Section --> 
             <section>
                 <h2>Quick Actions</h2>
-                <form>
-                    <input type="button" value="+ Add Item">
-                    <input type="button" value="+ Record a Sale">
-                    <input type="button" value="+ Add Expense/Milegae">
-                    <input type="button" value="Sourcing Calculator">
-                    <input type="button" value="Pricing Calculator">
+                <form action="open-form" method="post">
+                    <button type="submit">+ Add Item</button>
+                    <button type="submit">+ Record a Sale</button>
+                    <button type="submit">+ Add Expense/Milegae</button>
+                    <button type="submit">Sourcing Calculator</button>
+                    <button type="submit">Pricing Calculator</button>
                 </form>
             </section>
             <hr>

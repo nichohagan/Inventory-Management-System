@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flinventraq</title>
-        <meta charset="YTF-8">
+        <title>Resale Tracker</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Flinventraq: Inventory Management System for Resellers">
+        <meta name="description" content="Resale Tracker: Inventory Management System for Resellers">
     </head>
     <body>
         <!-- Some Semantic elements -->
          <header>
-            <img src="letter-F.png" alt="Oop! logo not found..." width="50" height="50">
-            <h1>Flinventraq</h1>
+            <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
+            <h1>Resale Tracker</h1>
          </header>
          <hr>
          <main>
@@ -18,58 +18,56 @@
             <hr>
             <!-- Log-In Card-->
             <section>
-                <h3>Flinventraq</h3>
+                <h3>Resale Tracker</h3>
                 <h4>Log-In</h4>
                 <!-- Insert Form here-->
-                 <form>
-                    <input type="button" value="Log-In">
-                    <input type="button" value="Sign-Up">
+                 <form action="user-log-in" method="post">
+                    <button type="submit">Log-In</button>
+                    <button type="submit">Sign-Up</button>
                     <hr>
-                    <span>
-                        <p>Email</p>
-                        <input type="text" name="email" placeholder="Enter your email" required>
-                    </span>
-                    <span>
-                        <p>Password</p>
-                        <input type="password" name="password" placeholder="Enter your password" required>
-                    </span>
-                    <hr>
-                    <input type="submit" value="Log-In">
+                    <fieldset>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </fieldset>
+                    <button type="submit">Log-In</button>
                     <p>Don't have an account? <a href="">Sign-Up</a></p> <!-- "Sign-Up" this should be a hyperlink to sign-up page. Add page link in href-->
                  </form>
             </section>
             <hr>
             <!-- Sign-Up Card-->
             <section>
-                <h3>Flinventraq</h3>
+                <h3>Resale Tracker</h3>
                 <h4>Sign-Up</h4>
                 <!-- Insert Form here-->
-                 <form>
-                    <input type="button" value="Log-In">
-                    <input type="button" value="Sign-Up">
+                 <form action="user-sign-up" method="post">
+                    <button type="submit">Log-In</button>
+                    <button type="submit">Sign-Up</button>
                     <hr>
-                    <span>
-                        <p>Full Name</p>
-                        <input type="text" name="fullname">
-                    </span>
-                    <span>
-                        <p>Email</p>
-                        <input type="text" name="email" required>
-                    </span>
-                    <span>
-                        <p>Username</p>
-                        <input type="text" name="username">
-                    </span>
-                    <span>
-                        <p>Password</p>
-                        <input type="password" name="password" required>
-                    </span>
-                    <span>
-                        <p>Confirm Password</p>
-                        <input type="password" name="cpassword" required>
-                    </span>
-                    <hr>
-                    <input type="submit" value="Create Account">
+                    <fieldset>
+                        <label for="name">Full Name</label>
+                        <input type="text" name="name">
+                    </fieldset>
+                    <fieldset>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="username">Username</label>
+                        <input type="text" id="name" name="username">
+                    </fieldset>
+                    <fieldset>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </fieldset>
+                    <button type="submit">Sign-Up</button>
                     <p>Already have an account? <a href="">Log-In</a></p> <!-- "Log-In" this should be a hyperlink to log-in page. Add page link in href-->
                  </form>
             </section>
