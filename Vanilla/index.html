@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Resale Tracker</title>
         <meta charset="UTF-8">
@@ -54,6 +54,7 @@
                     <select id="home-filter">
                         <option value="today">Today</option>
                         <option value="last-7days">Last 7 days</option>
+                        <option value="last-14days">Last 14 days</option>
                         <option value="this-week" selected>This Week</option>
                         <option value="last-week">Last Week</option>
                         <option value="this-month">This Month</option>
@@ -102,15 +103,55 @@
                 <article>6 Sales pending shipment</article>
             </section>
             <hr>
-            <!-- Aging Inventory Section --> 
+            <!-- Sales By Platform --> 
             <section>
-                <h2>Aging Inventory</h2>
-                <p>Aging inventory table, coming soon...</p>
+                <h2>Sales and Profit by Platform</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Qty Sold</th>
+                            <th>Gross Sales</th>
+                            <th>Total Fees</th>
+                            <th>Net Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>eBay</td>
+                            <td>67</td>
+                            <td>$6,463</td>
+                            <td>$543</td>
+                            <td>$4,807</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook Mrkplc</td>
+                            <td>25</td>
+                            <td>$2,908</td>
+                            <td>$0</td>
+                            <td>$1,900</td>
+                        </tr>
+                        <tr>
+                            <td>Poshmark</td>
+                            <td>6</td>
+                            <td>$485</td>
+                            <td>$180</td>
+                            <td>$208</td>
+                        </tr>
+                        <tr>
+                            <td>Mercari</td>
+                            <td>2</td>
+                            <td>$326</td>
+                            <td>$84.55</td>
+                            <td>$198</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
             <hr>
             <!-- Graph Section --> 
             <section>
-                <h2>Gross Sales vs Net Profit</h2>
+                <h2>Purchases vs Listing vs Sales</h2>
                 <p>Graph, coming soon...</p>
             </section>
             <hr>
