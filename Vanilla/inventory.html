@@ -24,6 +24,10 @@
                        </ul>
                    <li>Inventory</li>
                    <li>Sales</li>
+                        <ul>
+                            <li>All Sales</li>
+                            <li>Add Sales</li>
+                        </ul>                   
                    <li>Ledger</li>
                    <li>Insight</li>
                        <ul>
@@ -44,8 +48,8 @@
                <!-- Inventory main content -->
                     <nav>Home > Inventory</nav> <!-- Page Navigation (Breadcrumps) -->
                     <hr>
-                    <Form action="filters" method="get"> <!-- FILTERS & Search  -->
-                        <fieldset>
+                    <Form action="inventory-filters" method="get"> 
+                        <fieldset> <!-- INVENTORY STATUS  -->
                             <input type="radio" id="inventory-All" name="inventory-Filter" checked>
                             <label for="inventory-All">All</label> 
 
@@ -66,13 +70,14 @@
                             
                             <input type="radio" id="inventory-Missing" name="inventory-Filter">
                             <label for="inventory-Missing">Missing Data</label>    
-                            
+                        </fieldset>
+                        <fieldset>   <!-- SEARCH BOX --> 
                             <!-- Search box and Submit button -->
                             <input type="text" name="inv-search-box" placeholder="Search by SKU or Description">
                             <button type="search-btn">Search</button>
-
-                            <!-- AGING INVENTORY DROPDOWN -->
-                            <label for="aging-inventory">Aging Inventory</label>
+                        </fieldset> 
+                        <fieldset>   <!-- AGING INVENTORY DROPDOWN -->
+                            <label for="aging-inventory">Aging:</label>
                             <select>
                                 <option value="0-30d">0 - 30 days</option>
                                 <option value="31-60d">31 - 60 days</option>
@@ -80,10 +85,59 @@
                                 <option value="90+d" selected>90+ days</option>
                             </select>
 
-                            <!-- FILTER & EXPORT buttons -->
-                            <button type="filter-btn">Filter</button>
-                            <button type="export-btn">Export</button>
-                        </fieldset>
+                            <button type="ageinv-btn">View Items</button>
+                        </fieldset>    
+                        <p>============= TWO (2) MODALS LIVE IN THESE BUTTONS ==============</p> 
+                        <!-- FILTER button and Modal -->
+                        <button type="filter-btn">Filter</button>
+                        <dialog>
+                            <form>
+                                <h2>Custom Inventory Filter</h2>
+                                <button>X</button>
+                                <hr>
+                                <label>Show Active Items where:</label>
+                                <select>
+                                    <option value="listed-date">Listing Date</option>
+                                    <option value="purchase-date">Purchase Date</option>
+                                </select>
+                                <label>is</label>
+                                <select>
+                                    <option value="today">Today</option>
+                                    <option value="yesterday">Yesterday</option>
+                                    <option value="last-week">Last Week</option>
+                                    <option value="last-month">Last Month</option>
+                                    <option value="last-year">Last Year</option>
+                                    <option value="last-24h">Last 24 hours</option>
+                                    <option value="last-7d">Last 7 days</option>
+                                    <option value="last-30d">Last 30 days</option>
+                                    <option value="last-90d">Last 90 days</option>
+                                    <option value="week-to-date">Week to Date</option>
+                                    <option value="month-to-date">Month to Date</option>
+                                    <option value="year-to-date">Year to Date</option>
+                                    <option value="today">Today</option>
+                                </select>
+                                <hr>
+                                <botton>Filter</botton>   
+                                <botton>Cancel</botton>   
+                                <botton>Clear Filter</botton>                                
+                            </form>
+                        </dialog>
+
+                        <!-- EXPORT button and Modal -->
+                        <button type="export-btn">Export</button>
+                        <dialog>
+                            <form>
+                                <h2>Export a CSV file of your data</h2>
+                                <button>X</button>
+                                <hr>
+                                <p>You are about to export the following data:</p>
+                                <p>Inventory > Active matching "Year to Date"</p>
+                                <hr>
+                                <button>Export CSV</button>
+                                <button>Cancel</button>
+                            </form>
+                        </dialog>
+                        <p>================================================================</p>
                     </Form>
                     <table>
                         <thead>
@@ -95,6 +149,7 @@
                                 <th>Storage Location</th>
                                 <th>Source</th>
                                 <th>Purchase Date</th>
+                                <th>Purchase Price</th>
                                 <th>Bundle ID</th>
                                 <th>Action</th>
                             </tr>
@@ -107,7 +162,8 @@
                                 <td>23</td>
                                 <td>Shelf C</td>
                                 <td>Gov-Deals</td>
-                                <td>March 11, 2026</td>
+                                <td>Mar 11, 2026</td>
+                                <td>$34.99</td>
                                 <td>B-001</td>
                                 <td>
                                     <button>View</button>
@@ -122,6 +178,7 @@
                                 <td>Shelf A</td>
                                 <td>Supplier</td>
                                 <td>May 5, 2026</td>
+                                <td>$14.00</td>
                                 <td></td>
                                 <td>
                                     <button>View</button>
@@ -135,7 +192,8 @@
                                 <td>49</td>
                                 <td>Shelf F</td>
                                 <td>Facebook Mrkplc</td>
-                                <td>March 14, 2026</td>
+                                <td>Mar 14, 2026</td>
+                                <td>$44.45</td>
                                 <td></td>
                                 <td>
                                     <button>View</button>
@@ -149,7 +207,8 @@
                                 <td>128</td>
                                 <td>Shelf P</td>
                                 <td>Supplier</td>
-                                <td>February 8, 2026</td>
+                                <td>Feb 8, 2026</td>
+                                <td>$20.00</td>
                                 <td>B-005</td>
                                 <td>
                                     <button>View</button>
@@ -163,7 +222,8 @@
                                 <td>123</td>
                                 <td>Shelf C</td>
                                 <td>Gov-Deals</td>
-                                <td>January 29, 2026</td>
+                                <td>Jan 29, 2026</td>
+                                <td>$19.99</td>
                                 <td></td>
                                 <td>
                                     <button>View</button>
@@ -172,6 +232,21 @@
                             </tr>
                         </tbody>
                     </table>
+                    <hr>
+                    <p>============= TWO (2) MODALS LIVE. They are reusable for each row in the table ==============</p> 
+                    <!-- DELETE CONFIRMATION Dialog -->
+                    <dialog>
+                        <p>Are you sure you want to Delete this item? </p>
+                        <botton>Yes</botton>
+                        <botton>No</botton>
+                    </dialog>
+                    <!-- VIEW Dialog - Pulls up PRODUCT DETAILS PAGE -->
+                    <dialog>
+                        <p>Are you sure you want to Delete this item? </p>
+                        <botton>Yes</botton>
+                        <botton>No</botton>
+                    </dialog>
+
             </main>
             <hr>
             <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
