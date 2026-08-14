@@ -8,7 +8,7 @@
     </head>
     <body>
         <!-- Some Semantic elements -->
-            <header>
+            <header> <!-- INVENTORY PAGE HEADER -->
                <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
                <h1>Resale Tracker</h1>
                <p>NH</p>
@@ -236,15 +236,140 @@
                     <p>============= TWO (2) MODALS LIVE. They are reusable for each row in the table ==============</p> 
                     <!-- DELETE CONFIRMATION Dialog -->
                     <dialog>
-                        <p>Are you sure you want to Delete this item? </p>
+                        <p>Are you sure you want to Delete this item?</p>
                         <botton>Yes</botton>
                         <botton>No</botton>
                     </dialog>
                     <!-- VIEW Dialog - Pulls up PRODUCT DETAILS PAGE -->
                     <dialog>
-                        <p>Are you sure you want to Delete this item? </p>
-                        <botton>Yes</botton>
-                        <botton>No</botton>
+                        <header> <!-- PRODUCT DETAIL HEADER -->
+                            <h2>EDK-00032: Lenovo M73 Tiny Ultra Compact PC-Core i3-4130 8GB RAM 128GB SSD - Win11 No WiFi</h2>
+                            <botton>EDIT</botton>
+                            <botton>...</botton>
+                            <botton>X</botton>
+                        </header>
+                        <section><!-- PRODUCT INFO Section -->
+                            <h2>PRODUCT INFORMATION</h2>
+                            <!-- Product Details Sub-Section -->
+                            <h3>Product Details</h3> 
+                            <form>
+                                <label for="sku">SKU</label>
+                                <input type="text" name="sku">
+                                <label for="bundle-id">Bundle ID</label>
+                                <input type="text" name="bundle-id">
+                                <label for="status">Status</label>
+                                <input type="text" name="status"> 
+                                <label for="days-active">Days Active</label>
+                                <input type="text" name="days-active">                                
+                                <label for="category">Category</label>
+                                <input type="text" name="category">
+                                <label for="sub-category">Sub-Category</label>
+                                <input type="text" name="sub-category">
+                                <label for="current-cost">Current Cost</label>
+                                <input type="text" name="current-cost">
+                                <label for="date-created">Date Created</label>
+                                <input type="text" name="date-created">                                                                
+                            </form>
+                            <!-- Linked Purchases Sub-Section -->
+                            <h3>Linked Purchases</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Purchase ID</th>
+                                        <th>Source</th>
+                                        <th>Allocated Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PUR2026-0011</td>
+                                        <td>Estate Sale</td>
+                                        <td>$ 240</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PUR2026-0018</td>
+                                        <td>GovDeals</td>
+                                        <td>$ 1,352</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Related Components Sub-Section -->
+                            <h3>Related Components</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Part</th>
+                                        <th>Cost</th>
+                                        <th>Installed Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Installed</td>
+                                        <td>Crucial 8GB RAM</td>
+                                        <td>$14.99</td>
+                                        <td>Mar 5, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Installed</td>
+                                        <td>Screen</td>
+                                        <td>$28.00</td>
+                                        <td>Mar 19, 2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Active Listings Sub-Section -->
+                            <h3>Active Listings</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Platform</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>eBay</td>
+                                        <td>$129.99</td>
+                                        <td>Listed</td>
+                                        <td><a href="ebay.com">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Facebook MrkPlc</td>
+                                        <td>$135</td>
+                                        <td>Listed</td>
+                                        <td><a href="facebook.com">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mercari</td>
+                                        <td>$145</td>
+                                        <td>Listed</td>
+                                        <td><a href="mercari.com">View</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- NOTE Sub-Section -->
+                            <h3>NOTES</h3>
+                            <form>
+                                <textarea rows="10" cols="1"></textarea>
+                            </form>                            
+                            
+                        </section> 
+                        <section><!-- LIFECYCLE TIMELINE/ACTIVITY Section -->
+                            <h2>LIFECYCLE TIMELINE</h2>
+                            <p>Purchased on Jul 10, 2026</p>
+                            <p>RAM upgraded on Jul 30, 2026</p>
+                            <p>Listed on Ayg 20, 2026</p>
+                            <p>Sold on Sept 18, 2026</p>                            
+                        </section> 
+
+                        <botton>CANCEL</botton>
+                        <botton>SAVE CHANGES</botton>
                     </dialog>
 
             </main>
