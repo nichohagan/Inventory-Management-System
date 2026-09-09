@@ -1,0 +1,39 @@
+* {
+    background-color: #F9FAF5;
+    color: green;
+}
+
+/*
+Starting: 
+    #F9FAF5
+Try these also:
+    #eae7e7
+    #d7d5d5
+*/
+
+.main-header {
+    color: red;
+}
+
+.my-nav {
+    background-color: purple;
+}
+nav {
+    background-color: #375C6C;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+section {
+    background-color: blue;
+}
+

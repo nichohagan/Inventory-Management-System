@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Resale Tracker: Inventory Management System for Resellers">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <!-- Some Semantic elements -->
@@ -21,13 +22,13 @@
                 <h3>Resale Tracker</h3>
                 <!-- Insert Form here-->
                  <form action="auth-form-btns" method="get">
-                    <button type="submit">Log-In</button>
-                    <button type="submit">Sign-Up</button>
+                    <button type="submit">Login</button>
+                    <button type="submit">Sign Up</button>
                  </form>
                  <hr>
                  <form action="user-log-in" method="post">
                     <fieldset>
-                        <legend>Log-In</legend>
+                        <legend>Login</legend>
 
                         <label for="email">Email</label>
                         <input type="text" id="email" name="email" placeholder="Enter your email" required>
@@ -36,14 +37,14 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" placeholder="Enter your password" required>
                     </fieldset>
-                    <button type="submit">Log-In</button>
-                    <p>Don't have an account? <a href="">Sign-Up</a></p> <!-- "Sign-Up" this should be a hyperlink to sign-up page. Add page link in href-->
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="">Sign Up</a></p> <!-- "Sign-Up" this should be a hyperlink to sign-up page. Add page link in href-->
                  </form>
                 <hr> 
                  <!-- Insert Sign-Up Form here-->
                  <form action="user-sign-up" method="post">
                     <fieldset>
-                        <legend>Sign-Up</legend>
+                        <legend>Sign Up</legend>
                         <label for="name">Full Name</label>
                         <input type="text" name="name">
                         <br> <!-- REmove later when CSS is introduced -->
@@ -63,8 +64,8 @@
                         <label for="confirm-password">Confirm Password</label>
                         <input type="password" id="confirm-password" name="confirm-password" required>
                     </fieldset>
-                    <button type="submit">Sign-Up</button>
-                    <p>Already have an account? <a href="">Log-In</a></p> <!-- "Log-In" this should be a hyperlink to log-in page. Add page link in href-->
+                    <button type="submit">Create account</button>
+                    <p>Already have an account? <a href="">Login</a></p> <!-- "Log-In" this should be a hyperlink to log-in page. Add page link in href-->
                  </form>
             </section>
          </main>
