@@ -9,51 +9,55 @@
     </head>
     <body>
         <!-- Some Semantic elements -->
-         <header>
-            <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
-            <h1>Resale Tracker</h1>
-            <p>NH</p>
+         <header class="app-header">
+            <img class="app-logo" src="rt-logo-test.PNG" alt="Resale Tracker logo" width="50" height="50">
+            <h1 class="app-title">Resale Tracker</h1>
+            <p class="user-initials">NH</p>
          </header>
          <hr>
-         <nav> <!-- Main App Navigation -->
-            <ul>
-                <li>Home</li>
-                    <ul>
-                        <li>All Inventory</li>
-                        <li>Bundles</li>
-                        <li>Add Inventory</li>
+         <nav class="sidebar-nav"> <!-- Main App Navigation -->
+            <ul class="nav-list">
+                <li class="nav-item">Home
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">All Inventory</li>
+                        <li class="nav-subitem">Bundles</li>
+                        <li class="nav-subitem">Add Inventory</li>
                     </ul>
-                <li>Inventory</li>
-                <li>Sales</li>
-                    <ul>
-                        <li>All Sales</li>
-                        <li>Add Sale</li>
+                </li>
+                <li class="nav-item">Inventory</li>
+                <li class="nav-item">Sales
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">All Sales</li>
+                        <li class="nav-subitem">Add Sale</li>
                     </ul>
-                <li>Ledger</li>
-                <li>Insight</li>
-                    <ul>
-                        <li>Cashfow Statement</li>
-                        <li>Income Statement</li>
-                        <li>Tax Report</li>
+                </li>
+                <li class="nav-item">Ledger</li>
+                <li class="nav-item">Insight
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">Cashfow Statement</li>
+                        <li class="nav-subitem">Income Statement</li>
+                        <li class="nav-subitem">Tax Report</li>
                     </ul>
-                <li>Tools</li>
-                    <ul>
-                        <li>Sourcing Calculator</li>
-                        <li>Pricing Calculator</li>
+                </li>
+                <li class="nav-item">Tools
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">Sourcing Calculator</li>
+                        <li class="nav-subitem">Pricing Calculator</li>
                     </ul>
-                <li>Manage</li>
+                </li>
+                <li class="nav-item">Manage</li>
             </ul>
          </nav> 
          <hr>
-         <main>
+         <main class="main-content">
             <!-- Home page main content -->
-            <nav>Home</nav> <!-- Page Navigation (Breadcrumps) -->
+            <nav class="breadcrumb">Home</nav> <!-- Page Navigation (Breadcrumps) -->
             <hr>
             <p>Welcome back, Nick!</p>
             <p>Dropdown dates (coming soon...)</p>
             <hr> 
             <!-- Business Score Card Section --> 
-            <section>
+            <section class="dashboard-section scorecards">
                 <h2>Business Score Cards</h2>
                 <form action="home-filter" method="get">
                     <select id="home-filter">
@@ -69,49 +73,49 @@
                         <option value="year-to-date">Year To Date</option>                                                
                     </select>
                 </form>
-                <article>
-                    <p>UNSOLD GOODS</p>
-                    <P>$8,439</P>
+                <article class="scorecard">
+                    <p class="scorecard-label">UNSOLD GOODS</p>
+                    <P class="scorecard-value">$8,439</P>
                 </article>
-                <article>
-                    <p>QTY SOLD</p>
-                    <P>673</P>
+                <article class="scorecard">
+                    <p class="scorecard-label">QTY SOLD</p>
+                    <P class="scorecard-value">673</P>
                 </article>
-                <article>
-                    <p>GROSS SALES</p>
-                    <P>$11,984</P>
+                <article class="scorecard">
+                    <p class="scorecard-label">GROSS SALES</p>
+                    <P class="scorecard-value">$11,984</P>
                 </article>
-                <article>
-                    <p>NET PROFIT</p>
-                    <P>$1,439</P>
+                <article class="scorecard">
+                    <p class="scorecard-label">NET PROFIT</p>
+                    <P class="scorecard-value">$1,439</P>
                 </article>
             </section>
             <hr>
             <!-- Quick Actions Section --> 
-            <section>
+            <section class="dashboard-section quick-actions">
                 <h2>Quick Actions</h2>
-                <form action="open-form" method="post">
-                    <button type="submit">+ Add Item</button>
-                    <button type="submit">+ Record a Sale</button>
-                    <button type="submit">+ Ledger Entry</button>
-                    <button type="submit">Sourcing Calculator</button>
-                    <button type="submit">Pricing Calculator</button>
-                </form>
+                <div class="action-buttons" action="open-form" method="post">
+                    <button class="action-button" type="submit">+ Add Item</button>
+                    <button class="action-button" type="submit">+ Record a Sale</button>
+                    <button class="action-button" type="submit">+ Ledger Entry</button>
+                    <button class="action-button" type="submit">Sourcing Calculator</button>
+                    <button class="action-button" type="submit">Pricing Calculator</button>
+                </div>
             </section>
             <hr>
             <!-- My Tasks Section --> 
-            <section>
+            <section class="dashboard-section tasks-section">
                 <h2>My Tasks</h2>
-                <article>54 New Inventory are missing data</article>
-                <article>12 New Purchases pending entry in Inventory table</article>
-                <article>3 Returns pending action</article>
-                <article>6 Sales pending shipment</article>
+                <article class="task-item">54 New Inventory are missing data</article>
+                <article class="task-item">12 New Purchases pending entry in Inventory table</article>
+                <article class="task-item">3 Returns pending action</article>
+                <article class="task-item">6 Sales pending shipment</article>
             </section>
             <hr>
             <!-- Sales By Platform --> 
-            <section>
+            <section class="dashboard-section platform-sales">
                 <h2>Sales and Profit by Platform</h2>
-                <table>
+                <table class="data-table">
                     <thead>
                         <tr>
                             <th>Platform</th>
@@ -155,16 +159,18 @@
             </section>
             <hr>
             <!-- Graph Section --> 
-            <section>
+            <section class="dashboard-section sales-chart">
                 <h2>Purchases vs Listing vs Sales</h2>
                 <p>The area below if for graph. It's a container but cannot be seen now until JAvascript comes in.</p>
                 <p>=================== GRAPH Container Below =====================</p>
-                <canvas>This space of a container for Graph - later in Javascript</canvas>
+                <div class="chart-container">
+                    <canvas id="sales-chart">This space of a container for Graph - later in Javascript</canvas>
+                </div>
                 <p>=================== GRAPH Container Above =====================</p>
             </section>
             <hr>
          </main>
 
-         <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
+         <footer class="app-footer">© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
     </body>
 </html>
