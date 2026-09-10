@@ -8,68 +8,63 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <!-- Some Semantic elements -->
-         <header>
-            <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
-            <h1>Resale Tracker</h1>
-         </header>
-         <hr>
-         <main>
-            <h2>Welcome!</h2>
-            <hr>
-            <!-- Log-In Card-->
-            <section>
-                <h3>Resale Tracker</h3>
-                <!-- Insert Form here-->
-                 <form action="auth-form-btns" method="get">
-                    <button type="submit">Login</button>
-                    <button type="submit">Sign Up</button>
-                 </form>
-                 <hr>
-                 <form action="user-log-in" method="post">
+        <header class="app-header">
+            <img class="app-logo" src="rt-logo-test.PNG" alt="Resale Tracker logo" width="50" height="50">
+            <h1 class="app-title">Resale Tracker</h1>
+        </header>
+        <hr>
+        <main class="auth-page">
+            <!-- Log-In & Sign-up Cards-->
+            <section class="auth-section">
+                <header class="auth-header">
+                    <h2>Resale Tracker Inventory Managemen System</h2>
+                </header>
+                <!-- 0. Login / Signup Switch -->
+                <div class="auth-switch">
+                    <button class="auth-switch-login" type="button">Login</button>
+                    <button class="auth-switch-signup" type="button">Sign Up</button>
+                </div>
+                <hr>
+                <!-- 1. Login Card-->
+                <form class="auth-card login-card" action="user-log-in" method="post">
                     <fieldset>
                         <legend>Login</legend>
-
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" placeholder="Enter your email" required>
-                        <br> <!-- REmove later when CSS is introduced -->
-
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <!--Login fields-->
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input" type="text" id="email" name="email" placeholder="Enter your email" required>
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-input" type="password" id="password" name="password" placeholder="Enter your password" required>
                     </fieldset>
                     <button type="submit">Login</button>
-                    <p>Don't have an account? <a href="">Sign Up</a></p> <!-- "Sign-Up" this should be a hyperlink to sign-up page. Add page link in href-->
-                 </form>
+                    <p>Don't have an account? 
+                        <a href="">Sign Up</a>
+                    </p> <!-- "Sign-Up" this should be a hyperlink to sign-up page. Add page link in href-->
+                </form>
                 <hr> 
-                 <!-- Insert Sign-Up Form here-->
-                 <form action="user-sign-up" method="post">
+                <!-- 2. Sign-Up Card -->
+                <form class="auth-card signup-card" action="user-sign-up" method="post">
                     <fieldset>
                         <legend>Sign Up</legend>
-                        <label for="name">Full Name</label>
-                        <input type="text" name="name">
-                        <br> <!-- REmove later when CSS is introduced -->
- 
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" required>
-                        <br> <!-- REmove later when CSS is introduced -->
-
-                        <label for="username">Username</label>
-                        <input type="text" id="name" name="username">
-                        <br> <!-- REmove later when CSS is introduced -->
-
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-                        <br> <!-- REmove later when CSS is introduced -->
-
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <!--Signup fields-->
+                        <label class="form-label" for="name">Full Name</label>
+                        <input class="form-input" type="text" name="name">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input" type="text" id="email" name="email" required>
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-input" type="text" id="name" name="username">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-input" type="password" id="password" name="password" required>
+                        <label class="form-label" for="confirm-password">Confirm Password</label>
+                        <input class="form-input" type="password" id="confirm-password" name="confirm-password" required>
                     </fieldset>
                     <button type="submit">Create account</button>
-                    <p>Already have an account? <a href="">Login</a></p> <!-- "Log-In" this should be a hyperlink to log-in page. Add page link in href-->
-                 </form>
+                    <p>Already have an account? 
+                        <a href="">Login</a>
+                    </p> <!-- "Log-In" this should be a hyperlink to log-in page. Add page link in href-->
+                </form>
             </section>
-         </main>
-         <hr>
-         <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
+        </main>
+        <hr>
+        <footer class="app-footer">© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
     </body>
 </html>
