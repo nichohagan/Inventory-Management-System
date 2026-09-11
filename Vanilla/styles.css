@@ -1,13 +1,29 @@
-* {
+/* Global */
+body {
     background-color: #F9FAF5;
 }
 
-h1 {
-    color:red;
+h1, h2, h3 {
+    color: #1f1f1f;
     font-size: 20px;
 }
 
+.auth-page {
+    background-color: white;
+}
+
+/* Buttons */
 button {
-    background-color: #069494;
+    background-color: green;
     color: white;
+}
+
+/* Forms */
+.auth-card input {
+    color: #333;
+    font-size: 1rem;
+}
+
+input[type="password"] {
+    background-color: #fafafa;
 }
