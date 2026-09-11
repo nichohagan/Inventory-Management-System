@@ -9,372 +9,373 @@
     </head>
     <body>
         <!-- Some Semantic elements -->
-            <header> <!-- INVENTORY PAGE HEADER -->
-               <img src="rt-logo-test.PNG" alt="Oop! logo not found..." width="50" height="50">
-               <h1>Resale Tracker</h1>
-               <p>NH</p>
-            </header>
+        <header class="app-header">
+           <img class="app-logo" src="rt-logo-test.PNG" alt="Resale Tracker logo" width="50" height="50">
+           <h1 class="app-title">Resale Tracker</h1>
+           <p class="user-initials">NH</p>
+        </header>
+        <hr>
+        <nav class="sidebar-nav"> <!-- Main App Navigation -->
+            <ul class="nav-list">
+                <li class="nav-item">Home
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">All Inventory</li>
+                        <li class="nav-subitem">Bundles</li>
+                        <li class="nav-subitem">Add Inventory</li>
+                    </ul>
+                </li>
+                <li class="nav-item">Inventory</li>
+                <li class="nav-item">Sales
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">All Sales</li>
+                        <li class="nav-subitem">Add Sale</li>
+                    </ul>
+                </li>
+                <li class="nav-item">Ledger</li>
+                <li class="nav-item">Insight
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">Cashfow Statement</li>
+                        <li class="nav-subitem">Income Statement</li>
+                        <li class="nav-subitem">Tax Report</li>
+                    </ul>
+                </li>
+                <li class="nav-item">Tools
+                    <ul class="nav-sublist">
+                        <li class="nav-subitem">Sourcing Calculator</li>
+                        <li class="nav-subitem">Pricing Calculator</li>
+                    </ul>
+                </li>
+                <li class="nav-item">Manage</li>
+            </ul>
+        </nav> 
+        <hr>
+        <main>
+           <!-- Inventory main content -->
+            <nav class="breadcrumb">Home > Inventory</nav> <!-- Page Navigation (Breadcrumps) -->
             <hr>
-            <nav> <!-- Main App Navigation -->
-               <ul>
-                   <li>Home</li>
-                       <ul>
-                           <li>All Inventory</li>
-                           <li>Bundles</li>
-                           <li>Add Inventory</li>
-                       </ul>
-                   <li>Inventory</li>
-                   <li>Sales</li>
-                        <ul>
-                            <li>All Sales</li>
-                            <li>Add Sale</li>
-                        </ul>                   
-                   <li>Ledger</li>
-                   <li>Insight</li>
-                       <ul>
-                           <li>Cashfow Statement</li>
-                           <li>Income Statement</li>
-                           <li>Tax Report</li>
-                       </ul>
-                   <li>Tools</li>
-                       <ul>
-                           <li>Sourcing Calculator</li>
-                           <li>Pricing Calculator</li>
-                       </ul>
-                   <li>Manage</li>
-               </ul>
-            </nav> 
+            <form action="inventory-filters" method="get"> 
+                <fieldset> <!-- INVENTORY STATUS  -->
+                    <input type="radio" id="inventory-All" name="inventory-Filter" checked>
+                    <label for="inventory-All">All</label> 
+                    <input type="radio" id="inventory-Listed" name="inventory-Filter">
+                    <label for="inventory-Listed">Listed</label> 
+                    <input type="radio" id="inventory-Unlisted" name="inventory-Filter">
+                    <label for="inventory-Unlisted">Unlisted</label> 
+                    <input type="radio" id="inventory-Donated" name="inventory-Filter">
+                    <label for="inventory-Donated">Donated</label> 
+                    <input type="radio" id="inventory-Discarded" name="inventory-Filter">
+                    <label for="inventory-Discarded">Discarded</label> 
+                    <input type="radio" id="inventory-Bundled" name="inventory-Filter">
+                    <label for="inventory-Bundled">Bundled</label>  
+                    <input type="radio" id="inventory-Missing" name="inventory-Filter">
+                    <label for="inventory-Missing">Missing Data</label>    
+                </fieldset>
+                <fieldset>   <!-- SEARCH BOX --> 
+                    <!-- Search box and Submit button -->
+                    <label class="filter-label">Search Inventory:</label> 
+                    <input class="filter-input" type="search" name="inv-search-box" placeholder="Enter SKU or Description">
+                    <button class="button button-for-filters" type="submit">Search</button>
+                </fieldset> 
+                <fieldset>   <!-- AGING INVENTORY DROPDOWN -->
+                    <!--legend>Aging Inventory</legend-->
+                    <label for="aging-inventory">Aging:</label>
+                    <select class="filter-select">
+                        <option value="0-30d">0 - 30 days</option>
+                        <option value="31-60d">31 - 60 days</option>
+                        <option value="61-90d">61 - 90 days</option>
+                        <option value="90+d" selected>90+ days</option>
+                    </select>
+                    <button class="button button-for-filters" type="submit">View Items</button>
+                </fieldset>    
+                <p>============= TWO (2) MODALS LIVE IN THESE BUTTONS (Filter and Export) ==============</p> 
+                <!-- Filter & Export Buttons (they control Modals below)-->
+                <div class="filter-actions-for-modals">
+                    <button type="button" class="button button-for-filters">Filter</button>
+                    <button type="button" class="button button-for-filters">Export</button>
+                </div>
+                <!-- FILTER MODAL -->
+                <dialog id="filter-modal">
+                    <form method="dialog">
+                        <header>
+                            <h2>Custom Inventory Filter</h2>
+                            <button type="submit" aria-label="Close">X</button>
+                        </header>
+                        <hr>
+                        <label for="filter-field">Show Active Items where:</label>
+                        <select id="filter-field" name="filter-field">
+                            <option value="listed-date">Listing Date</option>
+                            <option value="purchase-date">Purchase Date</option>
+                        </select>
+                        <label for="filter-duration">is</label>
+                        <select id="filter-duration" name="filter-duration">
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="last-week">Last Week</option>
+                            <option value="last-month">Last Month</option>
+                            <option value="last-year">Last Year</option>
+                            <option value="last-24h">Last 24 hours</option>
+                            <option value="last-7d">Last 7 days</option>
+                            <option value="last-30d">Last 30 days</option>
+                            <option value="last-90d">Last 90 days</option>
+                            <option value="week-to-date">Week to Date</option>
+                            <option value="month-to-date">Month to Date</option>
+                            <option value="year-to-date">Year to Date</option>
+                            <option value="today">Today</option>
+                        </select>
+                        <hr>
+                        <botton type="submit" value="apply">Filter</botton>   
+                        <botton type="submit" value="cancel">Cancel</botton>   
+                        <botton type="submit" value="clear">Clear Filter</botton>                                
+                    </form>
+                </dialog>
+                <!-- EXPORT MODAL -->
+                <dialog id="export-modal">
+                    <form method="dialog">
+                        <header>
+                            <h2>Export a CSV file of your data</h2>
+                            <button type="submit" aria-label="Close">X</button>
+                        </header>
+                        <hr>
+                        <p>You are about to export the following data:</p>
+                        <p>Inventory &gt; Active matching "Year to Date"</p>
+                        <hr>
+                        <button type="submit" value="export">Export CSV</button>
+                        <button type="submit" value="cancel">Cancel</button>
+                    </form>
+                </dialog>
+                <p>================================================================</p>
+            </form>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Custom SKU</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Days Active</th>
+                        <th>Storage Location</th>
+                        <th>Source</th>
+                        <th>Purchase Date</th>
+                        <th>Purchase Price</th>
+                        <th>Bundle ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ELP-00056</td>
+                        <td>Lenovo ThinkPad T520 Intel i7-2640M 8GB 320GB HDD Linux Mint OS w/ Charger|ELP56</td>
+                        <td>Listed</td>
+                        <td>23</td>
+                        <td>Shelf C</td>
+                        <td>Gov-Deals</td>
+                        <td>Mar 11, 2026</td>
+                        <td>$34.99</td>
+                        <td>B-001</td>
+                        <td class="table-actions">
+                            <button class="button button-for-filters">View</button>
+                            <button class="button button-danger">Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ELP-00119</td>
+                        <td>Lenovo IdeaPad 3 CB14IGL05 14" Chromebook Celeron N4020 4GB Ram 64GB eMMC</td>
+                        <td>Listed</td>
+                        <td>64</td>
+                        <td>Shelf A</td>
+                        <td>Supplier</td>
+                        <td>May 5, 2026</td>
+                        <td>$14.00</td>
+                        <td></td>
+                        <td class="table-actions">
+                            <button class="button button-for-filters">View</button>
+                            <button class="button button-danger">Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EMD-00016</td>
+                        <td>Microsoft XBOX One S Model 1681 (White) Turns On For Parts/Repair - HDMI Issue</td>
+                        <td>Listed</td>
+                        <td>49</td>
+                        <td>Shelf F</td>
+                        <td>Facebook Mrkplc</td>
+                        <td>Mar 14, 2026</td>
+                        <td>$44.45</td>
+                        <td></td>
+                        <td class="table-actions">
+                            <button class="button button-for-filters">View</button>
+                            <button class="button button-danger">Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EPT-00012</td>
+                        <td>Microsoft Surface Pro 7 1866 i5-1035G4 1.1GHz 8GB DDR4 256GB SSD Motherboard OEM</td>
+                        <td>Listed</td>
+                        <td>128</td>
+                        <td>Shelf P</td>
+                        <td>Supplier</td>
+                        <td>Feb 8, 2026</td>
+                        <td>$20.00</td>
+                        <td>B-005</td>
+                        <td class="table-actions">
+                            <button class="button button-for-filters">View</button>
+                            <button class="button button-danger">Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EDK-00032</td>
+                        <td>Lenovo M73 Tiny Ultra Compact PC-Core i3-4130 8GB RAM 128GB SSD - Win11 No WiFi</td>
+                        <td>Listed</td>
+                        <td>123</td>
+                        <td>Shelf C</td>
+                        <td>Gov-Deals</td>
+                        <td>Jan 29, 2026</td>
+                        <td>$19.99</td>
+                        <td></td>
+                        <td class="table-actions">
+                            <button class="button button-for-filters">View</button>
+                            <button class="button button-danger">Delete</button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <hr>
-            <main>
-               <!-- Inventory main content -->
-                    <nav>Home > Inventory</nav> <!-- Page Navigation (Breadcrumps) -->
-                    <hr>
-                    <Form action="inventory-filters" method="get"> 
-                        <fieldset> <!-- INVENTORY STATUS  -->
-                            <input type="radio" id="inventory-All" name="inventory-Filter" checked>
-                            <label for="inventory-All">All</label> 
-
-                            <input type="radio" id="inventory-Listed" name="inventory-Filter">
-                            <label for="inventory-Listed">Listed</label> 
-
-                            <input type="radio" id="inventory-Unlisted" name="inventory-Filter">
-                            <label for="inventory-Unlisted">Unlisted</label> 
-
-                            <input type="radio" id="inventory-Donated" name="inventory-Filter">
-                            <label for="inventory-Donated">Donated</label> 
-
-                            <input type="radio" id="inventory-Discarded" name="inventory-Filter">
-                            <label for="inventory-Discarded">Discarded</label> 
-                            
-                            <input type="radio" id="inventory-Bundled" name="inventory-Filter">
-                            <label for="inventory-Bundled">Bundled</label>  
-                            
-                            <input type="radio" id="inventory-Missing" name="inventory-Filter">
-                            <label for="inventory-Missing">Missing Data</label>    
-                        </fieldset>
-                        <fieldset>   <!-- SEARCH BOX --> 
-                            <!-- Search box and Submit button -->
-                            <input type="text" name="inv-search-box" placeholder="Search by SKU or Description">
-                            <button type="search-btn">Search</button>
-                        </fieldset> 
-                        <fieldset>   <!-- AGING INVENTORY DROPDOWN -->
-                            <label for="aging-inventory">Aging:</label>
-                            <select>
-                                <option value="0-30d">0 - 30 days</option>
-                                <option value="31-60d">31 - 60 days</option>
-                                <option value="61-90d">61 - 90 days</option>
-                                <option value="90+d" selected>90+ days</option>
-                            </select>
-
-                            <button type="ageinv-btn">View Items</button>
-                        </fieldset>    
-                        <p>============= TWO (2) MODALS LIVE IN THESE BUTTONS (Filter and Export) ==============</p> 
-                        <!-- FILTER button and Modal -->
-                        <button type="filter-btn">Filter</button>
-                        <dialog>
-                            <form>
-                                <h2>Custom Inventory Filter</h2>
-                                <button>X</button>
-                                <hr>
-                                <label>Show Active Items where:</label>
-                                <select>
-                                    <option value="listed-date">Listing Date</option>
-                                    <option value="purchase-date">Purchase Date</option>
-                                </select>
-                                <label>is</label>
-                                <select>
-                                    <option value="today">Today</option>
-                                    <option value="yesterday">Yesterday</option>
-                                    <option value="last-week">Last Week</option>
-                                    <option value="last-month">Last Month</option>
-                                    <option value="last-year">Last Year</option>
-                                    <option value="last-24h">Last 24 hours</option>
-                                    <option value="last-7d">Last 7 days</option>
-                                    <option value="last-30d">Last 30 days</option>
-                                    <option value="last-90d">Last 90 days</option>
-                                    <option value="week-to-date">Week to Date</option>
-                                    <option value="month-to-date">Month to Date</option>
-                                    <option value="year-to-date">Year to Date</option>
-                                    <option value="today">Today</option>
-                                </select>
-                                <hr>
-                                <botton>Filter</botton>   
-                                <botton>Cancel</botton>   
-                                <botton>Clear Filter</botton>                                
-                            </form>
-                        </dialog>
-
-                        <!-- EXPORT button and Modal -->
-                        <button type="export-btn">Export</button>
-                        <dialog>
-                            <form>
-                                <h2>Export a CSV file of your data</h2>
-                                <button>X</button>
-                                <hr>
-                                <p>You are about to export the following data:</p>
-                                <p>Inventory > Active matching "Year to Date"</p>
-                                <hr>
-                                <button>Export CSV</button>
-                                <button>Cancel</button>
-                            </form>
-                        </dialog>
-                        <p>================================================================</p>
-                    </Form>
+            <p>============= TWO (2) MODALS LIVE HERE (Delete Confirm & Product Details). They are reusable for each row in the table ==============</p> 
+            <!-- DELETE CONFIRMATION DIALOG -->
+            <dialog id="deletion-modal">
+                <h2>Delete Inventory Item</h2>
+                <p>Are you sure you want to Delete this item?</p>
+                <botton class="button button-affirm button-danger" type="button">Yes, Delete</botton>
+                <botton class="button button-affirm" type="button">No</botton>
+            </dialog>
+            <!-- VIEW Dialog - Pulls up PRODUCT DETAILS PAGE -->
+            <dialog id="product-detail-modal">
+                <header> <!-- PRODUCT DETAIL HEADER -->
+                    <h2>EDK-00032: Lenovo M73 Tiny Ultra Compact PC-Core i3-4130 8GB RAM 128GB SSD - Win11 No WiFi</h2>
+                    <botton>EDIT</botton>
+                    <botton>...</botton>
+                    <botton>X</botton>
+                </header>
+                <section><!-- PRODUCT INFO Section -->
+                    <h2>PRODUCT INFORMATION</h2>
+                    <!-- Product Details Sub-Section -->
+                    <h3>Product Details</h3> 
+                    <form>
+                        <label for="sku">SKU</label>
+                        <input type="text" name="sku">
+                        <label for="bundle-id">Bundle ID</label>
+                        <input type="text" name="bundle-id">
+                        <label for="status">Status</label>
+                        <input type="text" name="status"> 
+                        <label for="days-active">Days Active</label>
+                        <input type="text" name="days-active">                                
+                        <label for="category">Category</label>
+                        <input type="text" name="category">
+                        <label for="sub-category">Sub-Category</label>
+                        <input type="text" name="sub-category">
+                        <label for="current-cost">Current Cost</label>
+                        <input type="text" name="current-cost">
+                        <label for="date-created">Date Created</label>
+                        <input type="text" name="date-created">                                                                
+                    </form>
+                    <!-- Linked Purchases Sub-Section -->
+                    <h3>Linked Purchases</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Purchase ID</th>
+                                <th>Source</th>
+                                <th>Allocated Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PUR2026-0011</td>
+                                <td>Estate Sale</td>
+                                <td>$ 240</td>
+                            </tr>
+                            <tr>
+                                <td>PUR2026-0018</td>
+                                <td>GovDeals</td>
+                                <td>$ 1,352</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Related Components Sub-Section -->
+                    <h3>Related Components</h3>
                     <table>
                         <thead>
                             <tr>
-                                <th>Custom SKU</th>
-                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Part</th>
+                                <th>Cost</th>
+                                <th>Installed Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Installed</td>
+                                <td>Crucial 8GB RAM</td>
+                                <td>$14.99</td>
+                                <td>Mar 5, 2026</td>
+                            </tr>
+                            <tr>
+                                <td>Installed</td>
+                                <td>Screen</td>
+                                <td>$28.00</td>
+                                <td>Mar 19, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Active Listings Sub-Section -->
+                    <h3>Active Listings</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Price</th>
                                 <th>Status</th>
-                                <th>Days Active</th>
-                                <th>Storage Location</th>
-                                <th>Source</th>
-                                <th>Purchase Date</th>
-                                <th>Purchase Price</th>
-                                <th>Bundle ID</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>ELP-00056</td>
-                                <td>Lenovo ThinkPad T520 Intel i7-2640M 8GB 320GB HDD Linux Mint OS w/ Charger|ELP56</td>
+                                <td>eBay</td>
+                                <td>$129.99</td>
                                 <td>Listed</td>
-                                <td>23</td>
-                                <td>Shelf C</td>
-                                <td>Gov-Deals</td>
-                                <td>Mar 11, 2026</td>
-                                <td>$34.99</td>
-                                <td>B-001</td>
-                                <td>
-                                    <button>View</button>
-                                    <button>Delete</button> 
-                                </td>
+                                <td><a href="ebay.com">View</a></td>
                             </tr>
                             <tr>
-                                <td>ELP-00119</td>
-                                <td>Lenovo IdeaPad 3 CB14IGL05 14" Chromebook Celeron N4020 4GB Ram 64GB eMMC</td>
+                                <td>Facebook MrkPlc</td>
+                                <td>$135</td>
                                 <td>Listed</td>
-                                <td>64</td>
-                                <td>Shelf A</td>
-                                <td>Supplier</td>
-                                <td>May 5, 2026</td>
-                                <td>$14.00</td>
-                                <td></td>
-                                <td>
-                                    <button>View</button>
-                                    <button>Delete</button> 
-                                </td>
+                                <td><a href="facebook.com">View</a></td>
                             </tr>
                             <tr>
-                                <td>EMD-00016</td>
-                                <td>Microsoft XBOX One S Model 1681 (White) Turns On For Parts/Repair - HDMI Issue</td>
+                                <td>Mercari</td>
+                                <td>$145</td>
                                 <td>Listed</td>
-                                <td>49</td>
-                                <td>Shelf F</td>
-                                <td>Facebook Mrkplc</td>
-                                <td>Mar 14, 2026</td>
-                                <td>$44.45</td>
-                                <td></td>
-                                <td>
-                                    <button>View</button>
-                                    <button>Delete</button> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>EPT-00012</td>
-                                <td>Microsoft Surface Pro 7 1866 i5-1035G4 1.1GHz 8GB DDR4 256GB SSD Motherboard OEM</td>
-                                <td>Listed</td>
-                                <td>128</td>
-                                <td>Shelf P</td>
-                                <td>Supplier</td>
-                                <td>Feb 8, 2026</td>
-                                <td>$20.00</td>
-                                <td>B-005</td>
-                                <td>
-                                    <button>View</button>
-                                    <button>Delete</button> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>EDK-00032</td>
-                                <td>Lenovo M73 Tiny Ultra Compact PC-Core i3-4130 8GB RAM 128GB SSD - Win11 No WiFi</td>
-                                <td>Listed</td>
-                                <td>123</td>
-                                <td>Shelf C</td>
-                                <td>Gov-Deals</td>
-                                <td>Jan 29, 2026</td>
-                                <td>$19.99</td>
-                                <td></td>
-                                <td>
-                                    <button>View</button>
-                                    <button>Delete</button> 
-                                </td>
+                                <td><a href="mercari.com">View</a></td>
                             </tr>
                         </tbody>
                     </table>
-                    <hr>
-                    <p>============= TWO (2) MODALS LIVE HERE (Delete Confirm & Product Details). They are reusable for each row in the table ==============</p> 
-                    <!-- DELETE CONFIRMATION Dialog -->
-                    <dialog>
-                        <p>Are you sure you want to Delete this item?</p>
-                        <botton>Yes</botton>
-                        <botton>No</botton>
-                    </dialog>
-                    <!-- VIEW Dialog - Pulls up PRODUCT DETAILS PAGE -->
-                    <dialog>
-                        <header> <!-- PRODUCT DETAIL HEADER -->
-                            <h2>EDK-00032: Lenovo M73 Tiny Ultra Compact PC-Core i3-4130 8GB RAM 128GB SSD - Win11 No WiFi</h2>
-                            <botton>EDIT</botton>
-                            <botton>...</botton>
-                            <botton>X</botton>
-                        </header>
-                        <section><!-- PRODUCT INFO Section -->
-                            <h2>PRODUCT INFORMATION</h2>
-                            <!-- Product Details Sub-Section -->
-                            <h3>Product Details</h3> 
-                            <form>
-                                <label for="sku">SKU</label>
-                                <input type="text" name="sku">
-                                <label for="bundle-id">Bundle ID</label>
-                                <input type="text" name="bundle-id">
-                                <label for="status">Status</label>
-                                <input type="text" name="status"> 
-                                <label for="days-active">Days Active</label>
-                                <input type="text" name="days-active">                                
-                                <label for="category">Category</label>
-                                <input type="text" name="category">
-                                <label for="sub-category">Sub-Category</label>
-                                <input type="text" name="sub-category">
-                                <label for="current-cost">Current Cost</label>
-                                <input type="text" name="current-cost">
-                                <label for="date-created">Date Created</label>
-                                <input type="text" name="date-created">                                                                
-                            </form>
-                            <!-- Linked Purchases Sub-Section -->
-                            <h3>Linked Purchases</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Purchase ID</th>
-                                        <th>Source</th>
-                                        <th>Allocated Cost</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>PUR2026-0011</td>
-                                        <td>Estate Sale</td>
-                                        <td>$ 240</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PUR2026-0018</td>
-                                        <td>GovDeals</td>
-                                        <td>$ 1,352</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <!-- Related Components Sub-Section -->
-                            <h3>Related Components</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>Part</th>
-                                        <th>Cost</th>
-                                        <th>Installed Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Installed</td>
-                                        <td>Crucial 8GB RAM</td>
-                                        <td>$14.99</td>
-                                        <td>Mar 5, 2026</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Installed</td>
-                                        <td>Screen</td>
-                                        <td>$28.00</td>
-                                        <td>Mar 19, 2026</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <!-- Active Listings Sub-Section -->
-                            <h3>Active Listings</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Platform</th>
-                                        <th>Price</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>eBay</td>
-                                        <td>$129.99</td>
-                                        <td>Listed</td>
-                                        <td><a href="ebay.com">View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Facebook MrkPlc</td>
-                                        <td>$135</td>
-                                        <td>Listed</td>
-                                        <td><a href="facebook.com">View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mercari</td>
-                                        <td>$145</td>
-                                        <td>Listed</td>
-                                        <td><a href="mercari.com">View</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- NOTE Sub-Section -->
-                            <h3>NOTES</h3>
-                            <form>
-                                <textarea rows="10" cols="1"></textarea>
-                            </form>                            
-                            
-                        </section> 
-                        <section><!-- LIFECYCLE TIMELINE/ACTIVITY Section -->
-                            <h2>LIFECYCLE TIMELINE</h2>
-                            <p>Purchased on Jul 10, 2026</p>
-                            <p>RAM upgraded on Jul 30, 2026</p>
-                            <p>Listed on Ayg 20, 2026</p>
-                            <p>Sold on Sept 18, 2026</p>                            
-                        </section> 
-
-                        <botton>CANCEL</botton>
-                        <botton>SAVE CHANGES</botton>
-                    </dialog>
-
-            </main>
-            <hr>
-            <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
+                    <!-- NOTE Sub-Section -->
+                    <h3>NOTES</h3>
+                    <form>
+                        <textarea rows="10" cols="1"></textarea>
+                    </form>                            
+                </section> 
+                <section><!-- LIFECYCLE TIMELINE/ACTIVITY Section -->
+                    <h2>LIFECYCLE TIMELINE</h2>
+                    <p>Purchased on Jul 10, 2026</p>
+                    <p>RAM upgraded on Jul 30, 2026</p>
+                    <p>Listed on Ayg 20, 2026</p>
+                    <p>Sold on Sept 18, 2026</p>                            
+                </section> 
+                <botton class="button" type="button">CANCEL</botton>
+                <botton class="button" type="button">SAVE CHANGES</botton>
+            </dialog>
+        </main>
+        <hr>
+        <footer>© Copyright 2026</footer> <!--Short cut for the copywrit symbol on Mac = OPtions+G-->
     </body>
 </html>
